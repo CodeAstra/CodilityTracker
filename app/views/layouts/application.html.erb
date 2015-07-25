@@ -10,6 +10,10 @@
 <body>
 <%= render 'common/header' %>
 <div class="container">
+  <div class="flash_messages">
+    <%= flash_tag(notice, "notice") %>
+    <%= flash_tag(alert, "alert") %>
+  </div>
   <%= yield %>
 </div>
 <%= render 'common/footer' %>
