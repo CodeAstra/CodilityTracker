@@ -3,4 +3,7 @@ class HomeController < ApplicationController
   #   `rails g controller home land`
   def land
   end
+
+  def dashboard
+  end
 end
