@@ -2,6 +2,29 @@
   <%= simple_form_for @new_submission, html: {class: "well form-inline"} do |f| %>
     <h3>Submit a Codility result page URL</h3>
     <%= f.input :url, label: false, placeholder: "Eg. https://codility.com/demo/results/demo8WK7HV-53C/" %>
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary", data: {"disable-with" => "Please wait..."} %>
   <% end %>
+
+  <table id="submissions" class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Submission ID</th>
+        <th>Task Title</th>
+        <th>Correctness</th>
+        <th>Performance</th>
+        <th>Task Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.submissions.each do |submission| %>
+        <tr>
+          <td><%= submission.id %></td>
+          <td><%= submission.task_title %></td>
+          <td><%= submission.correctness %></td>
+          <td><%= submission.performance %></td>
+          <td><%= submission.task_score %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

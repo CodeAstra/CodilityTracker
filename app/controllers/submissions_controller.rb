@@ -1,9 +1,7 @@
 class SubmissionsController < ApplicationController
   def create
     @submission = current_user.submissions.new(submission_params)
-    if @submission.save
-      flash[:notice] = "Submitted Successfully"
-    else
+    unless @submission.save
       flash[:alert] = "Submission Failed. #{@submission.errors.full_messages.join(", ")}"
     end
 
