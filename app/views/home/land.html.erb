@@ -1,3 +1,7 @@
-<h1>Welcome</h1>
+<div id="land">
+  <h1>Codility Tracker</h1>
+  <h2>Solve there. Track here.</h2>
 
-<%= link_to "Login using Github", user_omniauth_authorize_path(:github), class: "btn btn-primary btn-lg" %>
+  <%= link_to fa_icon("github", text: "Login using Github"), user_omniauth_authorize_path(:github), class: "btn btn-primary btn-lg", id: "land-login-link" %>
+
+</div>

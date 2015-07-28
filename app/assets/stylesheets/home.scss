@@ -1,3 +1,16 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#land {
+  a#land-login-link {
+    &, &:link, &:active, &:visited {
+      background-color: #333;
+      color: white;
+      transition: background-color 0.3s ease-in;
+    }
+
+    &:hover {
+      background-color: darken(#333, 10%);
+    }
+  }
+}
