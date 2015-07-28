@@ -1,1 +1,7 @@
-<h1>Dashboard</h1>
+<div id="dashboard">
+  <%= simple_form_for @new_submission, html: {class: "well form-inline"} do |f| %>
+    <h3>Submit a Codility result page URL</h3>
+    <%= f.input :url, label: false, placeholder: "Eg. https://codility.com/demo/results/demo8WK7HV-53C/" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>

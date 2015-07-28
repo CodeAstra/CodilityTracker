@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   devise :rememberable, :trackable,
           :omniauthable, :omniauth_providers => [:github]
 
+  has_many :submissions
+
   validates :provider, presence: true
   validates :uid, presence: true
 

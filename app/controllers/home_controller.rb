@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   end
 
   def dashboard
+    @new_submission = Submission.new
   end
 end
