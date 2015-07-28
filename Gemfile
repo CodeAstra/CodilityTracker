@@ -46,8 +46,10 @@ end
 group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'omniauth-facebook'

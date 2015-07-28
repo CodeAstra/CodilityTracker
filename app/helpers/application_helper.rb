@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def profile_pic_tag(user, size = :small)
+    return image_tag("https://graph.facebook.com/#{user.uid}/picture?type=#{size.to_s}", id: "profile-pic")
+  end
+
   def flash_tag(msg, msg_type)
     return unless msg.present?
     if msg_type == "notice"
