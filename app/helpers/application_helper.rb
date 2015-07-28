@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def profile_pic_tag(user)
+    image_tag(user.image, class: "profile-picture")
+  end
+
   def flash_tag(msg, msg_type)
     return unless msg.present?
     if msg_type == "notice"
