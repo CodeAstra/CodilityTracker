@@ -54,3 +54,4 @@ gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'omniauth-github'
+gem 'annotate'
