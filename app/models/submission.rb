@@ -24,8 +24,7 @@ class Submission < ActiveRecord::Base
 
   after_create :evaluate_submission
 
-private
-  def evaluate_submission
+  def scrape_data
     mechanize = Mechanize.new
     page = mechanize.get(self.url)
     self.task_title = get_tag_content(page, 'a#task-0-name')
@@ -34,6 +33,11 @@ private
     self.performance = get_tag_content(page, 'table.task-scores tr:nth-child(2) > td:nth-child(3) span.number')
     self.task_score = get_tag_content(page, '#total-result > b')
     self.save
+  end
+
+private
+  def evaluate_submission
+    self.delay.scrape_data
   end
 
   def get_tag_content(page, tag_selector)

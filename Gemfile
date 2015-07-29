@@ -48,6 +48,7 @@ end
 group :development do
   gem 'guard'
   gem 'guard-livereload', require: false
+  gem 'foreman'
 end
 
 group :production do
@@ -63,3 +64,5 @@ gem 'annotate'
 gem 'simple_form'
 gem 'mechanize'
 gem 'newrelic_rpm'
+gem 'delayed_job_active_record'
+gem 'puma'
