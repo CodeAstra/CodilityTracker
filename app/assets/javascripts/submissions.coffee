@@ -3,19 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 @SubmissionPoller =
   pendingSubmissionIds: []
-  start: (pendingSubmissionIds) ->
+  init: (pendingSubmissionIds) ->
     SubmissionPoller.pendingSubmissionIds = pendingSubmissionIds
-    setInterval(SubmissionPoller.poll, 5000)
-  poll: ->
     if SubmissionPoller.pendingSubmissionIds.length > 0
-      console.log "Polled #{SubmissionPoller.pendingSubmissionIds} on #{new Date()}"
-    else
-      console.log "Nothing to poll for"
+      SubmissionPoller.start()
+  start: ->
+    SubmissionPoller.pollLooper = setInterval(SubmissionPoller.poll, 5000)
+  poll: ->
+    console.log "Polled #{SubmissionPoller.pendingSubmissionIds} on #{new Date()}"
   addSubmissionToPoll: (submissionId) ->
     index = SubmissionPoller.pendingSubmissionIds.indexOf(submissionId)
     if (index == -1)
       SubmissionPoller.pendingSubmissionIds.push(submissionId)
+    if SubmissionPoller.pendingSubmissionIds.length == 1
+      SubmissionPoller.start()
   removeSubmissionFromPoll: (submissionId) ->
     index = SubmissionPoller.pendingSubmissionIds.indexOf(submissionId)
     if (index > -1)
       SubmissionPoller.pendingSubmissionIds.splice(index, 1)
+    if SubmissionPoller.pendingSubmissionIds.length == 0
+      clearInterval(SubmissionPoller.pollLooper)
