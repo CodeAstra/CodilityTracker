@@ -21,3 +21,9 @@
     </tbody>
   </table>
 </div>
+
+<script>
+  $(document).ready(function() {
+    SubmissionPoller.start(<%= @pending_submission_ids %>);
+  });
+</script>
