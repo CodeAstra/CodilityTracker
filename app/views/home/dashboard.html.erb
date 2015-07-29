@@ -9,6 +9,7 @@
     <thead>
       <tr>
         <th>Submission ID</th>
+        <th>Codility Session ID</th>
         <th>Task Title</th>
         <th>Correctness</th>
         <th>Performance</th>
@@ -19,6 +20,7 @@
       <% current_user.submissions.each do |submission| %>
         <tr>
           <td><%= submission.id %></td>
+          <td><%= submission.codility_session_id %></td>
           <td><%= submission.task_title %></td>
           <td><%= submission.correctness %></td>
           <td><%= submission.performance %></td>
