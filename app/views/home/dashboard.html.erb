@@ -1,5 +1,5 @@
 <div id="dashboard">
-  <%= simple_form_for @new_submission, html: {class: "well form-inline"} do |f| %>
+  <%= simple_form_for @new_submission, remote: true, html: {id: "submission_form", class: "well form-inline"} do |f| %>
     <h3>Submit a Codility result page URL</h3>
     <%= f.input :url, label: false, placeholder: "Eg. https://codility.com/demo/results/demo8WK7HV-53C/" %>
     <%= f.submit "Submit", class: "btn btn-primary", data: {"disable-with" => "Please wait..."} %>
@@ -16,7 +16,7 @@
         <th>Task Score</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="submissions_listing">
       <%= render @submissions %>
     </tbody>
   </table>

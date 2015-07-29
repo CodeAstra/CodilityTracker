@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @submissions = current_user.submissions.all
+    @submissions = current_user.submissions.order(id: :desc).all
     @new_submission = current_user.submissions.new
   end
 end

@@ -5,3 +5,8 @@ header {
     margin-right: 10px;
   }
 }
+
+.highlighted {
+  background-color: #F5D76E !important;
+  transition: background-color 0.5s ease-in;
+}

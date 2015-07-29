@@ -11,6 +11,10 @@ module ApplicationHelper
       msg_type = "danger"
     end
 
+    alert_msg(msg, msg_type)
+  end
+
+  def alert_msg(msg, msg_type)
     content_tag(:div, class: "alert alert-#{msg_type} alert-dismissible", role: "alert") do
       button_tag(class: "close", "data-dismiss" => "alert") do 
         content_tag(:span, raw("&times;"), "aria-hidden" => true) +
