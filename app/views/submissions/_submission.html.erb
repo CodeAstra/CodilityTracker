@@ -1,0 +1,14 @@
+<tr>
+  <td><%= submission.id %></td>
+  <% if submission.scraped? %>
+    <td><%= submission.codility_session_id %></td>
+    <td><%= submission.task_title %></td>
+    <td><%= submission.correctness %></td>
+    <td><%= submission.performance %></td>
+    <td><%= submission.task_score %></td>
+  <% else %>
+    <% 5.times do %>
+      <td><%= fa_icon "spinner", class: "fa-spin" %></td>
+    <% end %>
+  <% end %>
+</tr>

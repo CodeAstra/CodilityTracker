@@ -12,6 +12,7 @@
 #  correctness         :integer
 #  performance         :integer
 #  task_score          :integer
+#  scraped             :boolean          default(FALSE)
 #
 
 require 'mechanize'
@@ -32,6 +33,7 @@ class Submission < ActiveRecord::Base
     self.correctness = get_tag_content(page, 'table.task-scores tr:nth-child(2) > td:nth-child(2) span.number')
     self.performance = get_tag_content(page, 'table.task-scores tr:nth-child(2) > td:nth-child(3) span.number')
     self.task_score = get_tag_content(page, '#total-result > b')
+    self.scraped = true
     self.save
   end
 

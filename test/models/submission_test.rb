@@ -12,6 +12,7 @@
 #  correctness         :integer
 #  performance         :integer
 #  task_score          :integer
+#  scraped             :boolean          default(FALSE)
 #
 
 require 'test_helper'

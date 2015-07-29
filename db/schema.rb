@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729101041) do
+ActiveRecord::Schema.define(version: 20150729105841) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -32,13 +32,14 @@ ActiveRecord::Schema.define(version: 20150729101041) do
   create_table "submissions", force: :cascade do |t|
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "codility_session_id"
     t.string   "task_title"
     t.integer  "correctness"
     t.integer  "performance"
     t.integer  "task_score"
+    t.boolean  "scraped",             default: false
   end
 
   add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
