@@ -9,6 +9,8 @@
       SubmissionPoller.start()
   start: ->
     SubmissionPoller.pollLooper = setInterval(SubmissionPoller.poll, 5000)
+  stop: ->
+    clearInterval SubmissionPoller.pollLooper
   poll: ->
     console.log "Polled #{SubmissionPoller.pendingSubmissionIds} on #{new Date()}"
   addSubmissionToPoll: (submissionId) ->
@@ -22,4 +24,4 @@
     if (index > -1)
       SubmissionPoller.pendingSubmissionIds.splice(index, 1)
     if SubmissionPoller.pendingSubmissionIds.length == 0
-      clearInterval(SubmissionPoller.pollLooper)
+      SubmissionPoller.stop()
