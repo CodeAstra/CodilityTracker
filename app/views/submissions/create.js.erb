@@ -3,6 +3,7 @@ $('#dashboard .alert').remove();
   $('form#submission_form')[0].reset();
   $('#submissions_listing').prepend('<%= j render(@submission) %>');
   highlightElement('#submission-<%= @submission.id %>');
+  SubmissionPoller.addSubmissionToPoll(<%= @submission.id %>);
 <% else %>
   $('#dashboard').prepend("<%= j alert_msg(@submission.errors.full_messages.join(', '), 'danger') %>");
 <% end %>

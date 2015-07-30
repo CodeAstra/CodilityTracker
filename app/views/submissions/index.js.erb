@@ -1,0 +1,6 @@
+<% @submissions.each do |submission| %>
+  SubmissionPoller.removeSubmissionFromPoll(<%= submission.id %>);
+  var eleId = '#submission-<%= submission.id %>';
+  $(eleId).replaceWith('<%= j render(submission) %>');
+  highlightElement(eleId);
+<% end %>

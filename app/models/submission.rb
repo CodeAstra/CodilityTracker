@@ -20,6 +20,8 @@ require 'mechanize'
 class Submission < ActiveRecord::Base
   belongs_to :user
 
+  scope :scraped, -> { where(scraped: true) }
+
   validates :url, presence: true
   validates :user, presence: true
 

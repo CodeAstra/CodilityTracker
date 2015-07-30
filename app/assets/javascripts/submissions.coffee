@@ -12,7 +12,11 @@
   stop: ->
     clearInterval SubmissionPoller.pollLooper
   poll: ->
-    console.log "Polled #{SubmissionPoller.pendingSubmissionIds} on #{new Date()}"
+    $.ajax(
+      url: '/submissions'
+      data:
+        submission_ids: SubmissionPoller.pendingSubmissionIds
+      dataType: 'script')
   addSubmissionToPoll: (submissionId) ->
     index = SubmissionPoller.pendingSubmissionIds.indexOf(submissionId)
     if (index == -1)
